@@ -1,3 +1,4 @@
+/// <reference types='cypress' />
 describe('Preencher Formulário', () => {
   it('passes', () => {
     cy.visit('https://testautomationpractice.blogspot.com/')
@@ -30,5 +31,30 @@ describe('Preencher Formulário', () => {
     cy.get('#datepicker').first().should('have.value', '08/10/2025')
     cy.get('#txtDate').first().should('have.value', '20/08/2025')
     
+    // Selecionar imagem 1
+    cy.get('#singleFileInput').selectFile('cypress\\fixtures\\batman.jpg')
+
+    // Validar escolha da imagem 1
+    cy.get('#singleFileInput').should('have.value','C:\\fakepath\\cypress\\fixtures\\batman.jpg')
+
+    //anexar imagem 1
+    cy.get('#singleFileForm').find('button').click()
+
+    // Validar que a imagem 1 foi anexada
+    cy.get('#singleFileStatus').should('exist')
+
+    // Selecionar imagem 2
+    cy.get('#multipleFilesInput').selectFile('cypress\\fixtures\\capitao.jpg')
+
+    // Validar escolha da imagem 2
+    cy.get('#multipleFilesInput').should('have.value','C:\\fakepath\\cypress\\fixtures\\capitao.jpg')
+
+    //anexar imagem 1
+    cy.get('#multipleFilesForm').find('button').click
+
+    // Validar que a imagem 2 foi anexada
+    cy.get('#multipleFilesStatus').should('exist')
+    
+
   })
 })
