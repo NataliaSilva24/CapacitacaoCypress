@@ -1,6 +1,7 @@
 /// <reference types='cypress' />
-describe('Preencher Formulário', () => {
-  it('passes', () => {
+
+describe('Formulário', () => {
+  it('Preencher Formulário', () => {
     cy.visit('https://testautomationpractice.blogspot.com/')
     
     // Dados Pessoais 
@@ -57,4 +58,7 @@ describe('Preencher Formulário', () => {
     
 
   })
+
+
 })
+
