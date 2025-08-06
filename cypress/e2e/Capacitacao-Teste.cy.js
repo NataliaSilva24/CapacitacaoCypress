@@ -3,6 +3,7 @@
 describe('Formulário', () => {
   it('Preencher Formulário', () => {
     cy.visit('https://testautomationpractice.blogspot.com/')
+    cy.contains('Automation Testing Practice').should('be.visible')
     
     // Dados Pessoais 
     cy.get('#name').type('Isaac Gustavo Rodrigo Caldeira')
@@ -63,6 +64,9 @@ describe('Formulário', () => {
 
     cy.get('button[name="start"]').click()
     cy.get('button[name="stop"]').should('be.visible')
+
+    cy.contains('button','STOP').click()
+
 
   })
 
