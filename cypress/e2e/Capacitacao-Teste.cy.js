@@ -56,6 +56,13 @@ describe('Formulário', () => {
     // Validar que a imagem 2 foi anexada
     cy.get('#multipleFilesStatus').should('exist')
     
+  })
+
+  it.only('Validar tipos de botão', () =>{
+    cy.visit('https://testautomationpractice.blogspot.com/')
+
+    cy.get('button[name="start"]').click()
+    cy.get('button[name="stop"]').should('be.visible')
 
   })
 
