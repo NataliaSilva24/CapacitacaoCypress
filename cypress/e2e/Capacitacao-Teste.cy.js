@@ -1,7 +1,5 @@
 /// <reference types='cypress' />
 
-import { it } from "mocha"
-
 describe('Formulário', () => {
   it('Preencher Formulário', () => {
     cy.visit('https://testautomationpractice.blogspot.com/')
@@ -62,7 +60,7 @@ describe('Formulário', () => {
     
   })
 
-  it('Validar tipos de botão', () =>{
+  it.only('Validar tipos de botão', () =>{
     cy.visit('https://testautomationpractice.blogspot.com/')
 
     cy.get('button[name="start"]').click()
@@ -70,19 +68,33 @@ describe('Formulário', () => {
 
     cy.contains('button','STOP').click()
 
-  })
+  }) 
 
-  it.only('tipos de seleção chekbox', () => {
+  it('Tipos de seleção checkbox', () => {
     cy.visit('https://testautomationpractice.blogspot.com/')
-    cy.contains('Automation Testing Practice').should('be.visible')
 
-    // selecionar todos os chekbox da pagina 
-    cy.get('input[type="checkbox"]').check()
+     // selecionar todos checkbox da pagina 
+     //cy.get('input[type="checkbox]').check()
 
+     // selecionar todos o checkbox da caixa dias
+    //cy.get('input[type="checkbox"][class="form-check-input"]').check()
 
+    // Selecioar checkbox da caixa de dias pela letra inicial
+    cy.get('input[type="checkbox"][class="form-check-input"]') // aqui localiza a a caixa de check
+      // o proximo processo deve passar por todos os check, e selecionar o desejado. 
+
+      .each(($check=>{  // o check localizado vai ser armazenado no $check 
+        const valueText = $check.attr('value') // aqui o atributo do value esta sendo armazenado  no valuetext
+        if(valueText.startsWith('s')) // aqui vamos compara se o valor da valueText começa com a letra S
+          // comando CY.WRAP é para retornar ao cypress 
+          cy.wrap($check).check() // se a resposta for sim, deve ser selecionado.  
+      }))
   })
 
-  
+  it.only('links em uma nova aba', () => {
+    cy.visit('https://testautomationpractice.blogspot.com/')
+
+  })
 
 })
 
