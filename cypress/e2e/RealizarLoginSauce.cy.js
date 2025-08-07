@@ -29,6 +29,6 @@ describe('Tipos de Login', () => {
         Login.msgErroLogin('Epic sadface: Username is required')
     })
 
-
+// proxima aula segunda-feira, 28 de julho
     
 })

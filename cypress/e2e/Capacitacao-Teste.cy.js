@@ -1,5 +1,7 @@
 /// <reference types='cypress' />
 
+import { it } from "mocha"
+
 describe('Formulário', () => {
   it('Preencher Formulário', () => {
     cy.visit('https://testautomationpractice.blogspot.com/')
@@ -13,6 +15,7 @@ describe('Formulário', () => {
     cy.get('#female').click()
 
     // Selecionar dia - TIPO DE SELEÇÃO checkbox
+    
     cy.get('input[type="checkbox"]').check('sunday')
     cy.get('input[type="checkbox"]').check('tuesday')
     cy.get('input[type="checkbox"]').check('monday')
@@ -59,7 +62,7 @@ describe('Formulário', () => {
     
   })
 
-  it.only('Validar tipos de botão', () =>{
+  it('Validar tipos de botão', () =>{
     cy.visit('https://testautomationpractice.blogspot.com/')
 
     cy.get('button[name="start"]').click()
@@ -67,9 +70,19 @@ describe('Formulário', () => {
 
     cy.contains('button','STOP').click()
 
+  })
+
+  it.only('tipos de seleção chekbox', () => {
+    cy.visit('https://testautomationpractice.blogspot.com/')
+    cy.contains('Automation Testing Practice').should('be.visible')
+
+    // selecionar todos os chekbox da pagina 
+    cy.get('input[type="checkbox"]').check()
+
 
   })
 
+  
 
 })
 
