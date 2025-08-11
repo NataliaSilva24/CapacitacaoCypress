@@ -3,7 +3,7 @@ const el = require('./elements').ELEMENTS
 class Login {
 
     acessarURLSauce(url){
-        cy.visit(el.url)
+        cy.visit(url)
         cy.get(el.imgSwagLabs).should('be.visible')
     }
 

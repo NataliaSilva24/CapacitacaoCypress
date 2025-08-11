@@ -1,0 +1,13 @@
+{
+    "user":{
+        "user_01" :"standard_user",
+        "user_02" :"secret_sauce",
+        "user_Invalido" : "Descubra"
+    },
+
+    "senhaSauce":{
+        "password_01" : "secret_sauce",
+        "password_Invalido" : "descubra"
+
+    }
+}
